@@ -6,7 +6,7 @@
 #include "CallStack.h"
 #include <cstdio>
 
-using namespace acgchem;
+using namespace debug;
 
 template<typename T>
 void f4(T a)
