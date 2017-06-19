@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 
-namespace acgchem {
+namespace debug {
 
 using namespace std;
 
