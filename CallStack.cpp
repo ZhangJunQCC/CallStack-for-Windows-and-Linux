@@ -23,7 +23,7 @@
 #include <execinfo.h>
 #endif
 
-using namespace acgchem;
+using namespace debug;
 using namespace std;
 
 const char* CallStack::Unknown_Function = "[unknown function]";
