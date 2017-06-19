@@ -1,0 +1,6 @@
+CXX     = g++
+CXXFLAG = -g -fno-exceptions
+INCLUDE =-I"C:\Program Files\mingw-w64\x86_64-5.1.0-win32-seh-rt_v4-rev0\mingw64\include"
+LINK    =-L"C:\Program Files\mingw-w64\x86_64-5.1.0-win32-seh-rt_v4-rev0\mingw64\lib" -lbfd -liberty -lz -lDbgHelp
+test.exe: CallStack.cpp main.cpp
+	$(CXX) $^ -o $@ $(CXXFLAG) $(INCLUDE) $(LINK)
