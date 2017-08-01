@@ -9,7 +9,6 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cassert>
-#include <cxxabi.h>
 
 #if defined(_WIN32)
 #include <windows.h>
@@ -18,9 +17,11 @@
 #define PACKAGE         1 // Supress cmake error.
 #define PACKAGE_VERSION 1 // Supress cmake error.
 #include <bfd.h>
+#include <cxxabi.h>
 #endif
 #else
 #include <execinfo.h>
+#include <cxxabi.h>
 #endif
 
 using namespace debug;
@@ -41,6 +42,9 @@ CallStack::~CallStack(void)
 
 string CallStack::Demangle(const char* name)
 {
+#if defined(_MSC_VER)
+    return string(name);
+#else    
     string dname;
     int status = 0;
     char* pdname = abi::__cxa_demangle(name, NULL, 0, &status);     
@@ -54,6 +58,7 @@ string CallStack::Demangle(const char* name)
         dname.assign(CallStack::Unknown_Function);
     }
     return dname;
+#endif
 }
 
 #if defined(_WIN32)
@@ -238,7 +243,11 @@ void CallStack::GetCalls(vector<CallStack::CallInfo>& calls)
             function= (got_symbol) ? (symbol->Name) : Unknown_Function;
         }
 #else
+#if defined(_WIN64)        
         DWORD64 dummy = 0;
+#else
+        DWORD dummy = 0;
+#endif
         const bool got_symbol = SymGetSymFromAddr(process, frame.AddrPC.Offset, &dummy, symbol);
         const string function = (got_symbol) ? symbol->Name : Unknown_Function;
 
