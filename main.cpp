@@ -2,6 +2,20 @@
 // Author: Jun Zhang
 // mailto: zhangjunqcc@gmail.com
 //
+// To enable Callstack correctly return a function name, the codes
+// have to be compiled with the following options:
+//
+// On Linux and Mac OS X:
+//    g++ -g -rdynamic
+//
+// On Windows, mingw:
+//    g++ -g 
+//
+// On Windows, Microsoft Visual C++:
+//    cl.exe /DEBUG /Zi
+//
+// For link options, see the example Makefiles.
+//
 
 #include "CallStack.h"
 #include <cstdio>
