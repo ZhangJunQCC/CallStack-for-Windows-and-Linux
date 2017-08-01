@@ -1,0 +1,7 @@
+CXX     =cl
+CXXFLAG =/DEBUG /Zi /EHsc 
+INCLUDE =/I . /I "C:\Users\ZhangJun\AppData\Local\Programs\Common\Microsoft\Visual C++ for Python\9.0\VC\include" /I "C:\Users\ZhangJun\AppData\Local\Programs\Common\Microsoft\Visual C++ for Python\9.0\WinSDK\Include"
+LINK    =DbgHelp.lib
+test.exe: CallStack.cpp main.cpp
+	$(CXX) $? /o $@ $(CXXFLAG) $(INCLUDE) $(LINK)
+	del *.obj
