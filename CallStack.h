@@ -27,7 +27,7 @@ public:
         CallInfo(long long unsigned int toffset, const string& tfunction, const string& tmodule)
             : offset(toffset), function(tfunction), module(tmodule) { /* Nothing to do */ }
         ~CallInfo(void) { /* Nothing to do */ }
-        long long unsigned int offset;
+        long unsigned int offset;
         string function;
         string module;
     };
