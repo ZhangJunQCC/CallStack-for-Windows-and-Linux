@@ -1,0 +1,4 @@
+language: cpp
+compiler: gcc
+install: make -f Makefile.gnu
+script: ./test.x
