@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ZhangJunQCC/CallStack-for-Windows-and-Linux.svg?branch=master)](https://travis-ci.org/ZhangJunQCC/CallStack-for-Windows-and-Linux)
+
 # CallStack-for-Windows-and-Linux
 
 On Linux, one can check the call stack by using `backtrace <execinfo.h>`, which is unavailable on Windows. This light-weighed class is a wrapper of the corresponding functions for both Linux and Windows platforms, having the following features:
