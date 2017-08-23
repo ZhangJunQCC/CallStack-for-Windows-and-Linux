@@ -1,4 +1,4 @@
 language: cpp
 compiler: gcc
-install: make -f Makefile.gnu
+before_script: make -f Makefile.gnu
 script: ./test.x
